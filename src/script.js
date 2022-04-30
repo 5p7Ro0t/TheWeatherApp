@@ -1,7 +1,7 @@
 function findWeather() {
     var location = document.getElementById("search").value;
     // console.log(location);
-    var url = `http://api.weatherapi.com/v1/current.json?key=1c63857a8e0548f9a1a152750210909&q=` + location + `&aqi=yes`;
+    var url = `https://api.weatherapi.com/v1/current.json?key=1c63857a8e0548f9a1a152750210909&q=` + location + `&aqi=yes`;
     fetchData(url)
 }
 async function fetchData(url) {
