@@ -7,7 +7,12 @@ function findWeather() {
 async function fetchData(url) {
     var res = await fetch(url);
     var data = await res.json();
-    setValues(data);
+    if(res.status == 200){
+        setValues(data);
+    }
+    else{
+        document.getElementById("name").innerHTML = "Location not Found";
+    }
 }
 function setValues(data) {
     var setter = document.getElementById("temp_c");
@@ -17,7 +22,7 @@ function setValues(data) {
     setter.innerHTML = data.location.name;
 
     setter = document.getElementById("region");
-    setter.innerHTML = data.location.region + `, ` + data.location.country;
+    setter.innerHTML = `&nbsp;` +  data.location.region + `, ` + data.location.country;
     setter = document.getElementById("feelslike_c");
     setter.innerHTML = `Feels like ` + data.current.feelslike_c + `&#176`;
 
