@@ -76,6 +76,9 @@ input:focus {
     width: 20%;
     cursor: pointer
 }
+.fa-search:hover{
+    background: #d0eefc;
+}
 
 .light-text {
     color: #B0BEC5
