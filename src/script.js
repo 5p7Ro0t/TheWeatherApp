@@ -1,3 +1,29 @@
+getLocation();
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, () => {
+            document.getElementById("body").style.filter = 'blur(0rem)';
+        });
+    }
+}
+
+function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+//     console.log(latitude + " " + longitude);
+    getName(latitude, longitude)
+}
+async function getName(latitude, longitude) {
+    var access_key = '166610aa05c9306f03bfae02fa0f1f67'
+    var url = `http://api.positionstack.com/v1/reverse?access_key=` + access_key + `&query=` + latitude + `,` + longitude;
+    var res = await fetch(url);
+    var data = await res.json();
+//     console.log(data.data[0]);
+//     console.log(data.data[0].locality);
+    fetchData(data.data[0].locality);
+    document.getElementById("body").style.filter = 'blur(0rem)';
+}
+
 function findWeather() {
     var location = document.getElementById("search").value;
     // console.log(location);
