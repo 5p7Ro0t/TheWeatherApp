@@ -5,6 +5,8 @@ body {
     background-image: linear-gradient(#81D4FA, #2196F3);
     background-repeat: no-repeat;
     line-height: 2.38;
+    filter: blur(4rem);
+    transition: filter 0.75s ;
 }
 
 .card0 {
